@@ -4,10 +4,23 @@
     <br>
     <br>
     Added at <%=@raw['created_date'] %>
+</p>
+
     <br>
     <br>
     <h4>Comments: </h4>
+    <% @comments.each do |comment| %>
     <p>
+    <%= comment['content'] %>
+    <br>
+    <span style="font-size: 75%; color: #999;">Added at <%=comment['created_date'] %></span>
+  
+    </p>
+    <hr>
+    <br>
+    <% end %>
+    
+<p>
   <form action="/details/<%=@raw['id'] %>" method="POST">
      <textarea name="content" class="form-control" rows="6" placeholder="Type your comment here"></textarea>
      <br>
@@ -15,4 +28,3 @@
   </form>
 </p>
    
-</p>
